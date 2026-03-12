@@ -22,7 +22,7 @@ import MainStack from './navigation/MainStack';
 // Component trung gian: đọc trạng thái isLoggedIn từ Context
 // rồi quyết định render AuthStack hay MainStack
 //
-// ⚠️ Tại sao tách RootNavigator ra khỏi App()?
+//    Tại sao tách RootNavigator ra khỏi App()?
 //    Vì useAppContext() chỉ dùng được BÊN TRONG <AppProvider>
 //    Nếu gọi useAppContext() trực tiếp trong App() sẽ bị lỗi
 //    vì lúc đó AppProvider chưa bao bọc bên ngoài
