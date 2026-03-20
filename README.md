@@ -3,7 +3,6 @@ Nguyễn Đình Duy 23810310435 Kiểm tra thực hành NHÓM 1
 
 ![Screenshot_20260320_145100_Expo Go](https://github.com/user-attachments/assets/cfb3905a-6b07-4216-87b5-4a6803824a6c)
 ![Screenshot_20260320_145108_Expo Go](https://github.com/user-attachments/assets/24ba3018-f844-4197-be30-615864a8a1be)
-![Screenshot_20260320_145121_Expo Go](https://github.com/user-attachments/assets/c2379653-d8a4-442a-a932-7366f987ca8a)
 <img width="1044" height="1480" alt="image" src="https://github.com/user-attachments/assets/9f47419a-2da5-4373-9efe-9cad9f5c4fe4" />
 
 ![Screenshot_20260320_145146_Expo Go](https://github.com/user-attachments/assets/cde210bd-a324-4ad1-8c62-c7c40bbae3c6)
