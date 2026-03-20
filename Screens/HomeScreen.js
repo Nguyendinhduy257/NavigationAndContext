@@ -51,7 +51,7 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.header}>
         <View>
           <Text style={styles.greeting}>Hello 👋</Text>
-          <Text style={styles.subGreeting}>Christie Doe</Text>
+          <Text style={styles.subGreeting}>Nguyễn Đình Duy</Text>
         </View>
         <Image source={require('../assets/NguyenDinhDuy.png')} style={styles.avatar} />
       </View>

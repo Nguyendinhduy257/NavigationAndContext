@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Platform } from 'react-native';
+import { View, StyleSheet, Platform,Text } from 'react-native';
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -37,7 +37,12 @@ function CartStack() {
 }
 
 function DummyScreen() {
-    return <View style={{ flex: 1, backgroundColor: '#f9f9f9' }} />;
+    return(
+         <View style={{ flex: 1, backgroundColor: '#f9f9f9',display:'flex' }}>
+            <Text style={{backgroundColor:'#E8825A',padding:'10%',marginTop:'50%',display:'flex', justifyContent:'center',alignItems:'center',color:'#FFFFFF',fontSize:18,fontWeight:'500',borderWidth:2,borderRadius:20,borderLeftWidth:5,borderRightWidth:5}}>Đây là Screen mẫu</Text>
+         </View>
+    );
+    
 }
 
 export default function MainNavigation() {
@@ -48,7 +53,7 @@ export default function MainNavigation() {
                     headerShown: false,
                     tabBarShowLabel: false,
                     tabBarStyle: styles.tabBar,
-                    // PHẦN BỊ MẤT ĐÃ ĐƯỢC THÊM LẠI Ở ĐÂY:
+                    
                     tabBarIcon: ({ focused }) => {
                         let IconComponent;
 
@@ -107,7 +112,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         position: 'absolute',
         bottom: 0, left: 0, right: 0,
-        height: 90,
+        height: '10%',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         elevation: 10,
@@ -116,13 +121,15 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.1,
         shadowRadius: 10,
         padding: 40,
-        paddingBottom: Platform.OS === 'ios' ? 20 : 0,
+        paddingTop:10,
+        paddingBottom: Platform.OS === 'ios' ? 100 : 0,
 
     },
     activeIconContainer: {
         backgroundColor: '#EAF4FF',
         borderRadius: 12,
-        padding: 10,
+        padding: '20%',
+        marginTop:'15%',
         justifyContent: 'center',
         alignItems: 'center',
     },

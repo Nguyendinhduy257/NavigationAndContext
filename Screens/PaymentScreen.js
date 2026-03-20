@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView,Image } from 'react-native';
 import { ChevronLeft, CreditCard, Scan, HelpCircle, Lock } from 'lucide-react-native';
 
 export default function PaymentScreen({ navigation }) {
@@ -13,11 +13,12 @@ export default function PaymentScreen({ navigation }) {
                 >
                     <ChevronLeft size={28} color="#55CB73" strokeWidth={2.5} />
                 </TouchableOpacity>
+                
 
                 <View style={styles.headerTitleRow}>
                     <Text style={styles.pageTitle}>Checkout 💳</Text>
                     <View style={styles.totalContainer}>
-                        <Text style={styles.totalAmount}>₹ 1,527</Text>
+                        <Text style={styles.totalAmount}>$ 1,527</Text>
                         <Text style={styles.taxText}>Including GST (18%)</Text>
                     </View>
                 </View>
@@ -29,8 +30,13 @@ export default function PaymentScreen({ navigation }) {
                         <Text style={styles.activeMethodText}>Credit card</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.methodTab}>
-                        {/* Giả lập icon Apple bằng text */}
-                        <Text style={styles.inactiveMethodText}> Apple Pay</Text>
+                        <Image 
+                            // 2. Gọi file ảnh của bạn từ thư mục assets. 
+                            // Nhớ kiểm tra lại tên file và đường dẫn nhé!
+                            source={require('../assets/AppleIcon.png')} 
+                            style={styles.appleIcon} 
+                        />
+                        <Text style={styles.inactiveMethodText}> Apple Pay</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -58,11 +64,11 @@ export default function PaymentScreen({ navigation }) {
                 </View>
 
                 <View style={styles.inputGroup}>
-                    <Text style={styles.label}>Cardholder name</Text>
+                    <Text style={styles.label}>Card Holder name</Text>
                     <View style={styles.inputWrapper}>
                         <TextInput
                             style={styles.input}
-                            placeholder="Christie Doe"
+                            placeholder="Nguyễn Đình Duy"
                             placeholderTextColor="#333"
                         />
                     </View>
@@ -103,7 +109,7 @@ export default function PaymentScreen({ navigation }) {
                 <Text style={styles.footerNote}>
                     We will send you an order details to your{'\n'}email after the successfull payment
                 </Text>
-                <TouchableOpacity style={styles.payButton} activeOpacity={0.8} onPress={()=>navigation.navigate('SuccessScreen')}>
+                <TouchableOpacity style={styles.payButton} activeOpacity={0.8} onPress={() => navigation.navigate('SuccessScreen')}>
                     <Lock size={20} color="#FFFFFF" style={{ marginRight: 10 }} />
                     <Text style={styles.payButtonText}>Pay for the order</Text>
                 </TouchableOpacity>
@@ -117,7 +123,7 @@ const styles = StyleSheet.create({
     // Header styles
     header: {
         backgroundColor: '#FFFFFF',
-        paddingTop: 60, paddingHorizontal: 20, paddingBottom: 20,
+        paddingTop: '7%', paddingHorizontal: 20, paddingBottom: 20,
         borderBottomLeftRadius: 30, borderBottomRightRadius: 30,
         shadowColor: '#000', shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.05, shadowRadius: 10, elevation: 5,
@@ -150,9 +156,16 @@ const styles = StyleSheet.create({
     activeMethod: { backgroundColor: '#61D282', shadowColor: '#61D282', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 8, elevation: 5 },
     activeMethodText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold', marginLeft: 10 },
     inactiveMethodText: { color: '#333333', fontSize: 16, fontWeight: 'bold' },
+    appleIcon: {
+        width: 22, // Kích thước bằng với các icon khác
+        height: 22,
+        marginRight: 10, // Tạo khoảng cách với chữ
+        resizeMode: 'contain',
+        tintColor: '#B0B0B0', // Màu xám cho trạng thái inactive, khớp với các icon inactive khác
+    },
 
     // Form styles
-    formContainer: { padding: 20 },
+    formContainer: { padding: 20,paddingLeft:20,paddingRight:20, borderColor:'gray',borderWidth:1 ,borderRadius:20, borderLeftWidth:5,borderRightWidth:5},
     inputGroup: { marginBottom: 20 },
     label: { fontSize: 14, fontWeight: '600', color: '#333333', marginBottom: 10 },
     labelRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
@@ -160,7 +173,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row', alignItems: 'center',
         backgroundColor: '#FFFFFF', borderRadius: 16, paddingHorizontal: 15, height: 55,
     },
-    input: { flex: 1, fontSize: 16, color: '#1A1A1A' },
+    input: { flex: 1,width:'100%',height:'100%',borderRadius:20,padding:20, fontSize: 16, color: '#1A1A1A' },
     row: { flexDirection: 'row', justifyContent: 'space-between' },
 
     // Fake Mastercard icon

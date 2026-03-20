@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { ChevronLeft, ArrowRight } from 'lucide-react-native';
+import { ChevronLeft, ArrowRight, ChevronRight } from 'lucide-react-native';
+import HomeScreen from './HomeScreen';
 
 export default function SuccessScreen({ navigation }) {
   return (
@@ -8,10 +9,25 @@ export default function SuccessScreen({ navigation }) {
       {/* 1. NÚT BACK */}
       <TouchableOpacity 
         style={styles.backButton} 
-        onPress={() => navigation.goBack()}
+        onPress={()=>navigation.goBack()}
         activeOpacity={0.7}
       >
+        {/* icon của nút Back*/}
         <ChevronLeft size={28} color="#6172F3" strokeWidth={2.5} />
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={styles.backHomeButton}
+        onPress={()=>{
+          navigation.popToTop();//đửa CartStack về lại CartScreen gốc
+          navigation.navigate('Home')
+        }}
+        activeOpacity={0.7}
+      >
+        <Image
+        source={require('../assets/HomeIcon.png')}
+        style={styles.homeIcon}
+        />
+        <ChevronRight size={28} color='#6172F3' strokeWidth={2.5}></ChevronRight>
       </TouchableOpacity>
 
       {/* 2. NỘI DUNG CHÍNH */}
@@ -48,7 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
     paddingHorizontal: 20,
-    paddingTop: 60,
+    paddingTop: '7%',
     paddingBottom: 40,
   },
   
@@ -60,8 +76,43 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     justifyContent: 'center',
     alignItems: 'center',
+    //nôi lên trên khỏi Stack của các Screen khác
+    zIndex:10,
+    //dành cho Android
+    elevation:10,
   },
+  backHomeButton: {
+    // --- KHÓA CHÍNH ĐỂ NẰM CÙNG MỘT DÒNG ---
+    flexDirection: 'row', // Chuyển từ xếp dọc (mặc định) sang xếp ngang
+    alignItems: 'center', // Căn 2 icon thẳng hàng nhau theo chiều dọc
+    justifyContent: 'center', // Căn 2 icon nằm giữa nút theo chiều ngang
+    // ----------------------------------------
 
+    // Tinh chỉnh lại kích thước cho gọn gàng (vừa đủ chứa 2 icon)
+    // Bạn có thể giữ 100x100 nếu muốn, nhưng mình gợi ý kích thước này sẽ đẹp hơn:
+    width: 80, // Chiều rộng rộng hơn một chút để chứa 2 icon
+    height: 48, // Chiều cao bằng nút Back bên trái
+    backgroundColor: '#F7F8FA', // Màu xám rất nhạt
+    borderRadius: 14,
+    
+    // Nổi lên trên cùng
+    zIndex: 10,
+    elevation: 10, // Dành cho Android
+
+    // --- SỬA LẠI CÁCH ĐẶT VỊ TRÍ ĐỂ NẰM GÓC TRÊN BÊN PHẢI ---
+    // Thay vì dùng marginLeft/marginTop % rất khó căn, hãy dùng position absolute
+    position: 'absolute',
+    top: '5%', // Bằng với vị trí 'top' của nút Back bên trái
+    right: 20, // Cách mép phải màn hình 20px (cân đối với nút Back bên trái cách mép 20px)
+  },
+  
+  homeIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 6, // Tạo một khoảng cách nhỏ giữa ảnh Home và dấu mũi tên
+    resizeMode: 'contain', // Đảm bảo ảnh không bị méo
+    tintColor: '#6172F3', // Tô màu xanh cho ảnh Home khớp với màu dấu mũi tên (tuỳ chọn)
+  },
   // Khối nội dung ở giữa
   content: {
     flex: 1,

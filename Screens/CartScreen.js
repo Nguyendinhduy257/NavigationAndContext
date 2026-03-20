@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, requireNativeComponent } from 'react-native';
 import { ChevronLeft, Minus, Plus } from 'lucide-react-native';
 
 export default function CartScreen({ navigation }) {
@@ -11,8 +11,8 @@ export default function CartScreen({ navigation }) {
             name: "Orange Juice",
             price: 149,
             quantity: 2,
-            // Thay bằng require('../assets/juice.png') nếu bạn có ảnh trong máy
-            image: { uri: 'https://images.unsplash.com/photo-1622597467836-f38240662c8b?q=80&w=200' },
+            // Thay bằng require('../assets/juice.png') 
+            image: require('../assets/OrangeJuice.png'), 
         },
         {
             id: 2,
@@ -20,7 +20,7 @@ export default function CartScreen({ navigation }) {
             name: "Skimmed Milk",
             price: 129,
             quantity: 2,
-            image: { uri: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?q=80&w=200' },
+            image:require('../assets/SkimMilk.png'),
         },
         {
             id: 3,
@@ -28,7 +28,7 @@ export default function CartScreen({ navigation }) {
             name: "Aloe Vera Lotion",
             price: 1249,
             quantity: 2,
-            image: { uri: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=200' },
+            image: require('../assets/AloeLotion.png'),
         },
     ];
 
@@ -61,7 +61,7 @@ export default function CartScreen({ navigation }) {
                             <View style={styles.infoContainer}>
                                 <Text style={styles.brandText}>{item.brand}</Text>
                                 <Text style={styles.nameText}>{item.name}</Text>
-                                <Text style={styles.priceText}>₹ {item.price}</Text>
+                                <Text style={styles.priceText}>$ {item.price}</Text>
                             </View>
 
                             {/* Nút tăng giảm số lượng */}
@@ -82,7 +82,7 @@ export default function CartScreen({ navigation }) {
                 <View style={styles.footer}>
                     <View style={styles.totalRow}>
                         <Text style={styles.totalLabel}>Total</Text>
-                        <Text style={styles.totalAmount}>₹ 1,527</Text>
+                        <Text style={styles.totalAmount}>$ 1,527</Text>
                     </View>
 
                     <TouchableOpacity style={styles.checkoutButton} activeOpacity={0.8} onPress={()=>navigation.navigate('PaymentScreen')}>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FDFDFD',
     },
     scrollContent: {
-        paddingTop: 120, // Đẩy nội dung xuống dưới nút Back
+        paddingTop: 100, // Đẩy nội dung xuống dưới nút Back
         paddingHorizontal: 20,
         paddingBottom: 130, // Chừa chỗ cho Bottom Navigation
     },
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     // --- Nút Back (Position Absolute để giữ cố định ở góc) ---
     backButton: {
         position: 'absolute',
-        top: 60,
+        top: '5%',
         left: 20,
         width: 48,
         height: 48,
@@ -154,8 +154,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     productImage: {
-        width: 35,
-        height: 50,
+        width: '100%',
+        height: '100%',
         resizeMode: 'contain',
     },
     infoContainer: {
