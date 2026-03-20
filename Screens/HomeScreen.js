@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
   },
   exploreItem: {
     marginRight: 15,
+    paddingBottom:100,
   },
   exploreImage: {
     width: 140,

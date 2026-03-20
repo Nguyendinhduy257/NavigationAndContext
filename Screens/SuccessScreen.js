@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
   
   // Nút Back
   backButton: {
+    top:'1%',
     width: 48,
     height: 48,
     backgroundColor: '#F8F9FB', // Màu xám rất nhạt
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     // ----------------------------------------
 
     // Tinh chỉnh lại kích thước cho gọn gàng (vừa đủ chứa 2 icon)
-    // Bạn có thể giữ 100x100 nếu muốn, nhưng mình gợi ý kích thước này sẽ đẹp hơn:
+  
     width: 80, // Chiều rộng rộng hơn một chút để chứa 2 icon
     height: 48, // Chiều cao bằng nút Back bên trái
     backgroundColor: '#F7F8FA', // Màu xám rất nhạt
@@ -99,8 +100,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
     elevation: 10, // Dành cho Android
 
-    // --- SỬA LẠI CÁCH ĐẶT VỊ TRÍ ĐỂ NẰM GÓC TRÊN BÊN PHẢI ---
-    // Thay vì dùng marginLeft/marginTop % rất khó căn, hãy dùng position absolute
+   
     position: 'absolute',
     top: '5%', // Bằng với vị trí 'top' của nút Back bên trái
     right: 20, // Cách mép phải màn hình 20px (cân đối với nút Back bên trái cách mép 20px)

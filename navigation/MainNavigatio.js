@@ -39,7 +39,7 @@ function CartStack() {
 function DummyScreen() {
     return(
          <View style={{ flex: 1, backgroundColor: '#f9f9f9',display:'flex' }}>
-            <Text style={{backgroundColor:'#E8825A',padding:'10%',marginTop:'50%',display:'flex', justifyContent:'center',alignItems:'center',color:'#FFFFFF',fontSize:18,fontWeight:'500',borderWidth:2,borderRadius:20,borderLeftWidth:5,borderRightWidth:5}}>Đây là Screen mẫu</Text>
+            <Text style={{backgroundColor:'#E8825A',padding:'10%',marginTop:'10%',display:'flex', justifyContent:'center',alignItems:'center',color:'#FFFFFF',fontSize:18,fontWeight:'500',borderWidth:2,borderRadius:20,borderLeftWidth:5,borderRightWidth:5}}>   Đây là Screen mẫu</Text>
          </View>
     );
     
@@ -122,7 +122,8 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         padding: 40,
         paddingTop:10,
-        paddingBottom: Platform.OS === 'ios' ? 100 : 0,
+        paddingBottom:60,
+        paddingBottom: Platform.OS === 'ios' ? 100 : 100,
 
     },
     activeIconContainer: {

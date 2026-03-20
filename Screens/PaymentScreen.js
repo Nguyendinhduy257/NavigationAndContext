@@ -48,7 +48,7 @@ export default function PaymentScreen({ navigation }) {
                     <View style={styles.inputWrapper}>
                         <TextInput
                             style={styles.input}
-                            placeholder="5261   4141   0151   8472"
+                            placeholder="039 600 9584"
                             placeholderTextColor="#333"
                             keyboardType="number-pad"
                         />
@@ -139,23 +139,23 @@ const styles = StyleSheet.create({
         flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
         marginBottom: 25,
     },
-    pageTitle: { fontSize: 24, fontWeight: 'bold', color: '#1A1A1A' },
+    pageTitle: { fontSize: 14, fontWeight: 'bold', color: '#1A1A1A' },
     totalContainer: { alignItems: 'flex-end' },
-    totalAmount: { fontSize: 22, fontWeight: 'bold', color: '#55CB73' },
+    totalAmount: { fontSize: 14, fontWeight: 'bold', color: '#55CB73' },
     taxText: { fontSize: 12, color: '#A0A0A0', marginTop: 2 },
 
     // Payment Methods Tab
     paymentMethods: {
         flexDirection: 'row', backgroundColor: '#F8F9FB',
-        borderRadius: 20, padding: 5,
+        borderRadius: 20, padding: 5
     },
     methodTab: {
         flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center',
         paddingVertical: 15, borderRadius: 15,
     },
     activeMethod: { backgroundColor: '#61D282', shadowColor: '#61D282', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.3, shadowRadius: 8, elevation: 5 },
-    activeMethodText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold', marginLeft: 10 },
-    inactiveMethodText: { color: '#333333', fontSize: 16, fontWeight: 'bold' },
+    activeMethodText: { color: '#FFFFFF', fontSize: 14, fontWeight: 'bold', marginLeft: 10 },
+    inactiveMethodText: { color: '#333333', fontSize: 14, fontWeight: 'bold' },
     appleIcon: {
         width: 22, // Kích thước bằng với các icon khác
         height: 22,
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row', alignItems: 'center',
         backgroundColor: '#FFFFFF', borderRadius: 16, paddingHorizontal: 15, height: 55,
     },
-    input: { flex: 1,width:'100%',height:'100%',borderRadius:20,padding:20, fontSize: 16, color: '#1A1A1A' },
+    input: { flex: 1,width:'100%',height:'100%',borderRadius:20,padding:0, fontSize: 12, color: '#1A1A1A',flexWrap:'nowrap' },
     row: { flexDirection: 'row', justifyContent: 'space-between' },
 
     // Fake Mastercard icon
